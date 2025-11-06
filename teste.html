@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Semáforo simples</title>
+  <style>
+    .semaforo {
+      width: 100px; 
+      padding: 10px; 
+      background: #333; 
+      border-radius: 10px;
+    }
+    .luz {
+      width: 60px; 
+      height: 60px; 
+      border-radius: 50%; 
+      margin: 10px auto;
+      opacity: 0.2;
+    }
+    .vermelho { background: red; }
+    .amarelo  { background: yellow; }
+    .verde    { background: green; }
+    .on { 
+        opacity: 1; 
+    }
+  </style>
+</head>
+<body>
+  <div class="semaforo">
+    <div class="luz vermelho"></div>
+    <div class="luz amarelo"></div>
+    <div class="luz verde"></div>
+  </div>
+
+  <script>
+    const vermelho = document.querySelector(".vermelho");
+    const amarelo  = document.querySelector(".amarelo");
+    const verde    = document.querySelector(".verde");
+
+    function apagar() {
+      vermelho.classList.remove("on");
+      amarelo.classList.remove("on");
+      verde.classList.remove("on");
+    }
+
+    function esperar(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function semaforo() {
+      while (true) {
+        apagar();
+        vermelho.classList.add("on");
+        await esperar(2000);
+
+        apagar(); 
+        verde.classList.add("on");
+        await esperar(2000);
+
+        apagar(); 
+        amarelo.classList.add("on");
+        await esperar(1000);
+      }
+    }
+
+    semaforo();
+  </script>
+</body>
+</html>

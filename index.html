@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+    <title>Projeto</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html"><h1>SKYRIM</h1></a>
+            <div id="menu">
+                <a id="paginaAtiva"href="index.html">Inicio</a>
+                <a id="escolhamenu"href="./sobre.html">Sobre o Jogo</a>
+                <a id="escolhamenu"href="./wiki.php">Wiki</a>
+                <a id="loginLink" href="cadastro.html">Login/Cadastro</a>
+            </div>
+        </nav>
+    </header>
+
+
+
+<h1> Seja Bem-Vindo ao vasto mundo de The Elder Scrolls V: Skyrim!</h1>
+      <div class="container" id="home">
+          <p>The Elder Scrolls V: Skyrim é um RPG de ação criado pela Bethesda Game Studios e lançado em 2011,
+             conquistando mais de 200 prêmios de “Jogo do Ano”. A versão Special Edition trouxe gráficos melhorados
+             e ajudou a manter o jogo vivo até hoje.</p>
+             <p>A história começa com o retorno inesperado dos dragões, que estavam desaparecidos há séculos. Entre eles está Alduin, o Devorador de Mundos, um dragão lendário que, segundo as profecias, traria o fim de tudo.</p>
+            <button onclick="sobre()">Saiba Mais</button>
+            </div>
+
+            <script>
+              function sobre() {
+                window.location.href="sobre.html";
+              }
+            </script>
+
+
+<audio id="musica" autoplay muted loop>
+  <source src="sons/Skyrim Theme Song - Full (Dovahkiin Song)(MP3_160K).mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const musica = document.getElementById("musica");
+
+  function liberarSom() {
+    musica.muted = false; 
+    musica.volume = 0;   
+
+    musica.play().then(() => {
+      let vol = 0;
+      const fade = setInterval(() => {
+        if (vol < 1) {
+          vol += 0.05;         
+          musica.volume = vol;
+        } else {
+          clearInterval(fade); 
+        }
+      }, 100);                 
+    }).catch(() => {
+      console.log("A musica foi bloqueada, clique na pagina novamente");
+    });
+
+    window.removeEventListener("click", liberarSom);
+  }
+
+  window.addEventListener("click", liberarSom);
+</script>
+
+<style>
+  #musica {
+    display: none;
+  }
+</style>
+
+</body>
+</html>

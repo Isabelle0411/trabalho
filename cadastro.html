@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html"><h1>SKYRIM</h1></a>
+            <div id="menu">
+                <a id="escolhamenu" href="index.html">Início</a>
+                <a id="escolhamenu" href="sobre.html">Sobre o Jogo</a>
+                <a id="escolhamenu"href="./wiki.php">Wiki</a>
+                <a id="paginaAtiva" href="cadastro.html">Login/Cadastro</a>
+            </div>
+        </nav>
+    </header>
+  <main>
+    <section class="login" id="login1">
+      <h2>Login / Cadastro</h2>
+      <input type="text" id="usuario" placeholder="Usuário">
+      <input type="password" id="senha" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+      <button onclick="cadastrar()">Cadastrar</button>
+      <p id="msg"></p>
+    </section>
+  </main>
+
+
+
+  <script src="cadastro.js"></script>
+  <a id="loginLink" href="cadastro.html">Login/Cadastro</a>
+<a id="loginLink" href="cadastro.html">Login/Cadastro</a>
+
+  </body>
+</html>
